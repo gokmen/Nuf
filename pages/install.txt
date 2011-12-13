@@ -27,8 +27,11 @@ Ftp application (Mc is fine) thats all.
 - PHP 5
 - Access rights to the files
 
-To install it just put all files to the your web page **root** directory,
-if you need to use your user dir (like `/home/user/public_html`) for hosting,
+To install it just put all files to the your web page **root** directory, then
+copy `config.ini.orig` as `config.ini`, copy `pages.ini.orig` as `pages.ini`
+and copy `htaccess` file as `.htaccess` to enable rewrite rule support.
+
+If you need to use your user dir (like `/home/user/public_html`) for hosting,
 also take a look at the `.htaccess` file.
 
 ### Configuration
