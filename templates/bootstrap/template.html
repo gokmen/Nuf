@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>[@title]</title>
+    <meta name="author" content="[@author]">
+    <meta name="description" content="[@description]">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Styles -->
+    <link href="[@hostname]/[@templatedir]/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 80px;
+      }
+      .topbar {
+          margin: 0 auto;
+          width: 980px;
+          top:10px;
+      }
+      .topbar-inner {
+          border-radius: 8px;
+          border: 1px solid #CCC;
+      }
+      pre>code {
+          background-color: #f5f5f5;
+      }
+    </style>
+    [@google_analytics]
+  </head>
+  <body>
+   <div class="topbar-wrapper" style="z-index: 5;">
+     <div class="topbar" data-dropdown="dropdown">
+       <div class="topbar-inner">
+         <div class="container">
+           <h3><a href="[@hostname]">[@title]</a></h3>
+           <ul class="nav" style="float:right;">
+               [@menu]
+           </ul>
+          </div>
+       </div><!-- /topbar-inner -->
+     </div><!-- /topbar -->
+   </div>
+   <div class="container">
+    [@content]
+    <footer>
+     <p>&copy; [@author] 2011</p>
+    </footer>
+   </div> <!-- /container -->
+  </body>
+</html>

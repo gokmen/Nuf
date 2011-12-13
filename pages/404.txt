@@ -1,0 +1,9 @@
+<div class="hero-unit">
+  <h1>Page Not Found!</h1>
+  <p>
+    <div class="alert-message error">
+        <p><strong>Error 404</strong> Requested Page Not found, please
+        check the address that you typed</p>
+    </div>
+  </p>
+</div>

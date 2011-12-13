@@ -1,0 +1,9 @@
+<div class="hero-unit">
+  <h1>Hello, world!</h1>
+  <p>Welcome to your new home page! With Nuf you can create your home page
+  by just editing some text files. You can write in Markdown or simple HTML
+  files. Choose your template, fill pages with Markdown or HTML, put them to
+  server, that's it! (No DB connection required) Nuf also supports Google
+  Analytics, just write down your tracker code!</p>
+  <p><a class="btn primary large" href="install">Learn more &raquo;</a></p>
+</div>
