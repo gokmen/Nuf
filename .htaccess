@@ -12,7 +12,6 @@ RewriteEngine on
 # If you are running this in your home diretory (/home/USERNAME/public_html)
 # please change the value of USERNAME and uncomment the following line:
 # RewriteBase /~USERNAME/
-RewriteBase /~gokmen/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
