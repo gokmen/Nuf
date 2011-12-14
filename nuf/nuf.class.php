@@ -91,7 +91,7 @@
                     if (array_key_exists("link", $this->_pages[$page]))
                         $row->set("address", $this->_pages[$page]["link"]);
                     else
-                        $row->set("address", "{$page}");
+                        $row->set("address", "{$this->config['url']}/{$page}");
                     $menuItems[] = $row;
                 }
             }
