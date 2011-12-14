@@ -9,6 +9,8 @@
     # Software Foundation; either version 2 of the License, or (at your option)
     # any later version.
 
+    error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+
     require("template.class.php");
 
     # A simple function to read given file
