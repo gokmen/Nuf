@@ -1,8 +1,9 @@
 # Nuf (~Fun)
 
 **Nuf** is an easy way to manage simple home pages, it supports Markdown syntax
-and provides basic template support. It uses bootstrap as default template
-which is based on Twitter's bootstrap CSS. And written in PHP. No DB required.
+and provides basic template support. It uses Twitter's [bootstrap CSS](http://twitter.github.com/bootstrap/)
+where you can use its any non-js element in your webpage. Nuf is written in PHP 
+and works with filesystem. No DB required!
 
 To add or edit a page you just need traditional tools; an editor (Vim) and an
 Ftp application (Mc is fine) thats all.
