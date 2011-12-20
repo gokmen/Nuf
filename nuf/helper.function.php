@@ -39,6 +39,10 @@
         $Layout->set("author", $PCM->config["author"]);
         $Layout->set("description", $PCM->config["description"]);
 
+        # Set unknown keywords for template customization
+        foreach(array_keys($PCM->config) as $keyword)
+            $Layout->set("c:{$keyword}", $PCM->config[$keyword]);
+
         $Content = $PCM->getContent();
 
         # FIXME Find a proper solution for plugin usage
