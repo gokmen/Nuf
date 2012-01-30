@@ -25,3 +25,7 @@ plugins = markdown, google_analytics
 
 # Page render method, markdown is default on, delete to turn off
 render_method = markdown
+
+# If ignore_not_added_pages is true then any added pages can be readable by Nuf
+# You don't need to add them pages.ini
+# ignore_not_added_pages = true
