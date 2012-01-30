@@ -29,4 +29,6 @@ hidden = true
 name = Nuf
 link = http://github.com/gokmen/Nuf
 
+[photos]
+name = Photos
 # Links are ordered as seen as in this file.

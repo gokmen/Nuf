@@ -18,7 +18,7 @@ author = Gökmen Göksel
 description = "Everything! Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering. I sense much fear in you."
 
 # Plugins, if you are not using them you can get rid of them
-plugins = markdown, google_analytics
+plugins = markdown, google_analytics, galleria
 
 # Its required by google_analytics plugin to track your page
 # tracker_code = TRACKER_CODE

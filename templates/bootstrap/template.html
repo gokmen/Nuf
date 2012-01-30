@@ -5,31 +5,13 @@
     <title>[@title]</title>
     <meta name="author" content="[@author]">
     <meta name="description" content="[@description]">
-
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
     <!-- Styles -->
     <link href="[@hostname]/[@templatedir]/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 80px;
-      }
-      .topbar {
-          margin: 0 auto;
-          width: 980px;
-          top:10px;
-      }
-      .topbar-inner {
-          border-radius: 8px;
-          border: 1px solid #CCC;
-      }
-      pre>code {
-          background-color: #f5f5f5;
-      }
-    </style>
+    <link href="[@hostname]/[@templatedir]/nuf.css" rel="stylesheet">
     [@c:plugin_header]
   </head>
   <body>
@@ -48,7 +30,7 @@
    <div class="container">
     [@content]
     <footer>
-     <p>&copy; [@author] 2011</p>
+     <p>&copy; [@author]</p>
     </footer>
    </div> <!-- /container -->
   </body>
