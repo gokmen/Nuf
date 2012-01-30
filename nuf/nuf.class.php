@@ -24,16 +24,18 @@
             $this->config = parse_ini_file($config_file);
             $this->_pages = parse_ini_file($pages_file, true);
             $this->pages  = array_keys($this->_pages);
-            $this->plugins = explode(',', $this->getConfig("plugins", ''));
+            $this->plugins = explode(', ', $this->getConfig("plugins", ''));
             $this->template = $this->getConfig("template", "default");
         }
 
         # Set Current Page
         public function setCurrentPage($page) {
-            if (array_search($page, $this->pages) !== false) {
+            $ignore_not_added_pages = $this->getConfig("ignore_not_added_pages", false);
+            if (array_search($page, $this->pages) !== false or $ignore_not_added_pages) {
                 $this->currentPage = $page;
-                if (array_key_exists("template", $this->_pages[$page]))
-                    $this->pageStyle = "-{$this->_pages[$page]["template"]}";
+                if (!$ignore_not_added_pages)
+                    if (array_key_exists("template", $this->_pages[$page]))
+                        $this->pageStyle = "-{$this->_pages[$page]["template"]}";
                 return true;
             }
             if (array_search("404", $this->pages) !== false)
@@ -55,8 +57,9 @@
         # Return given property for current page item
         # If property does not exists or its empty it returns default value
         public function getCurrentPageProperty($property, $default_value = false) {
-            if (array_key_exists($property, $this->_pages[$this->currentPage]))
-                return $this->_pages[$this->currentPage][$property];
+            if (array_search($page, $this->pages) !== false)
+                if (array_key_exists($property, $this->_pages[$this->currentPage]))
+                    return $this->_pages[$this->currentPage][$property];
             return $default_value;
         }
 
@@ -70,8 +73,9 @@
 
         # Check if page is hidden
         private function isPageHidden($page) {
-            if (array_key_exists("hidden", $this->_pages[$page]))
-                return $this->_pages[$page]["hidden"];
+            if (array_search($page, $this->pages) !== false)
+                if (array_key_exists("hidden", $this->_pages[$page]))
+                    return $this->_pages[$page]["hidden"];
             return false;
         }
 
@@ -100,15 +104,22 @@
         }
 
         # Return current page content
-        public function getContent() {
+        public function getContent($just_addr = false) {
             $file = "pages/{$this->currentPage}.html";
             $content = readContent($file);
             if ($content === false) {
                 $file = "pages/{$this->currentPage}.txt";
                 $content = readContent($file);
-                if ($content === false)
+                if ($content === false) {
+                    if (array_search("404", $this->pages) !== false) {
+                        $this->setCurrentPage("404");
+                        return $this->getContent();
+                    }
                     $content = "<b>Page not found.</b> Please put something into <pre>{$this->config["url"]}/{$file}</pre>";
+                }
             }
+            if ($just_addr)
+                return $file;
             return $content;
         }
 
