@@ -11,7 +11,6 @@ name = Home
 
 [install]
 name = Install
-hidden = true
 
 # Markdown syntax page its safe to delete
 [markdown]
