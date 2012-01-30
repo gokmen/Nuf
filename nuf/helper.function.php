@@ -17,10 +17,7 @@
     function readContent($file) {
         if (!file_exists($file))
             return false;
-        $f_object = fopen($file, "r");
-        $content = fread($f_object, filesize($file));
-        fclose($f_object);
-        return $content;
+        return file_get_contents($file);
     }
 
     # Page builder function which based on given PCM instance
@@ -39,21 +36,27 @@
         $Layout->set("author", $PCM->config["author"]);
         $Layout->set("description", $PCM->config["description"]);
 
+        $Content = new Template($PCM->getContent(true));
+
         # Set unknown keywords for template customization
-        foreach(array_keys($PCM->config) as $keyword)
+        foreach(array_keys($PCM->config) as $keyword) {
             $Layout->set("c:{$keyword}", $PCM->config[$keyword]);
+            $Content->set("c:{$keyword}", $PCM->config[$keyword]);
+        }
 
-        $Content = $PCM->getContent();
+        $Content = $Content->output($keep_keywords = true, $ignore_warnings = true);
 
+        $_plugin_header = '';
         # FIXME Find a proper solution for plugin usage
         foreach (glob("plugins/*") as $filename) {
             $plugin = substr($filename, strlen("plugins/"));
-            if (array_search($plugin, $PCM->plugins) !== false)
+            if (in_array($plugin, $PCM->plugins)) {
                 include $filename."/plugin.php";
+            }
         }
+        $Layout->set("c:plugin_header", $_plugin_header);
 
         $Layout->set("content", $Content);
-
         return $Layout->output();
     }
 
