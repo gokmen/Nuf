@@ -59,14 +59,18 @@
          *
          * @return string
          */
-        public function output() {
+        public function output($keep_keywords = false, $ignore_warnings = false) {
             /**
              * Tries to verify if the file exists.
              * If it doesn't return with an error message.
              * Anything else loads the file contents and loops through the array replacing every key for its value.
              */
-            if (!file_exists($this->file))
-                return "Error loading template file ($this->file).<br />";
+            if (!file_exists($this->file)) {
+                if ($ignore_warnings)
+                    return $this->file;
+                else
+                    return "Error loading template file ($this->file).<br />";
+            }
 
             $output = file_get_contents($this->file);
 
@@ -75,8 +79,9 @@
                 $output = str_replace($tagToReplace, $value, $output);
             }
 
-            // Remove any unused template tag
-            $output = preg_replace("/(\[@.+?\])/i", "", $output);
+            if (!$keep_keywords)
+                // Remove any unused template tag
+                $output = preg_replace("/(\[@.+?\])/i", "", $output);
 
             return $output;
         }
