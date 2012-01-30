@@ -1,0 +1,16 @@
+<div id="galleria"></div>
+<script>
+    Galleria.loadTheme('plugins/galleria/themes/classic/galleria.classic.js');
+    $('#galleria').galleria({
+        picasa: 'useralbum:[@album]',
+        picasaOptions: {
+            imageSize: 'big',
+            description: true,
+        },
+        transition: 'fade',
+        maxScaleRatio: 1,
+        autoplay: 5000,
+        popupLinks: true,
+        transitionSpeed: 800,
+    });
+</script>
