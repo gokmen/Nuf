@@ -24,6 +24,7 @@
             $this->config = parse_ini_file($config_file);
             $this->_pages = parse_ini_file($pages_file, true);
             $this->pages  = array_keys($this->_pages);
+            $this->pageExtension = "html";
             $this->plugins = explode(', ', $this->getConfig("plugins", ''));
             $this->template = $this->getConfig("template", "default");
         }
@@ -106,9 +107,11 @@
         # Return current page content
         public function getContent($just_addr = false) {
             $file = "pages/{$this->currentPage}.html";
+            $this->pageExtension = "html";
             $content = readContent($file);
             if ($content === false) {
                 $file = "pages/{$this->currentPage}.txt";
+                $this->pageExtension = "txt";
                 $content = readContent($file);
                 if ($content === false) {
                     if (array_search("404", $this->pages) !== false) {
