@@ -1,8 +1,8 @@
 <?php
 
-    # Copyright (C) 2012, Nuf (~Fun)
-    # 2012 - Gökmen Göksel <gokmen@goksel.me>
-    #        http://github.com/gokmen
+    # Copyright (C) 2011-2012, Nuf (~Fun)
+    # 2011,2012 - Gökmen Göksel <gokmen@goksel.me>
+    #             http://github.com/gokmen
 
     # This program is free software; you can redistribute it and/or modify it
     # under the terms of the GNU General Public License as published by the Free
@@ -72,12 +72,12 @@
         while (!feof($fp))
             $contents .= fread($fp, 8192);
         fclose($fp);
-        
+
         xml_parser_set_option($parser, XML_OPTION_TARGET_ENCODING, "UTF-8");
         xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
         xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
         xml_parse_into_struct($parser, trim($contents), $xml_values);
-        
+
         xml_parser_free($parser);
         if (!$xml_values)
             return array (); //Hmm...
@@ -111,7 +111,7 @@
                 }
             }
             if ($type == "open")
-            { 
+            {
                 $parent[$level -1] = & $current;
                 if (!is_array($current) or (!in_array($tag, array_keys($current))))
                 {
@@ -129,11 +129,11 @@
                         $repeated_tag_index[$tag . '_' . $level]++;
                     }
                     else
-                    { 
+                    {
                         $current[$tag] = array (
                             $current[$tag],
                             $result
-                        ); 
+                        );
                         $repeated_tag_index[$tag . '_' . $level] = 2;
                         if (isset ($current[$tag . '_attr']))
                         {
@@ -195,5 +195,5 @@
         }
         return ($xml_array);
     }
-    
+
 ?>

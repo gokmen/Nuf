@@ -1,8 +1,8 @@
 <?php
 
-    # Copyright (C) 2011, Nuf (~Fun)
-    # 2011 - Gökmen Göksel <gokmen@goksel.me>
-    #        http://github.com/gokmen
+    # Copyright (C) 2011-2012, Nuf (~Fun)
+    # 2011,2012 - Gökmen Göksel <gokmen@goksel.me>
+    #             http://github.com/gokmen
 
     # This program is free software; you can redistribute it and/or modify it
     # under the terms of the GNU General Public License as published by the Free
@@ -14,7 +14,7 @@
         include("nuf/nuf.class.php");
         $cachefile = "cache/".$_GET["page"].".html";
 
-        // Serve from the cache if it is the same age or younger than the last 
+        // Serve from the cache if it is the same age or younger than the last
         // modification time of the included file (includes/$reqfilename)
 
         $cachetime = 5 * 60;

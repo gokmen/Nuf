@@ -1,9 +1,9 @@
 <?php
 
-    # Copyright (C) 2011, Nuf (~Fun)
+    # Copyright (C) 2011-2012, Nuf (~Fun)
     # 2011 - Nuno Freitas <nunofreitas@gmail.com>
-    # 2011 - Gökmen Göksel <gokmen@goksel.me>
-    #        http://github.com/gokmen
+    # 2011,2012 - Gökmen Göksel <gokmen@goksel.me>
+    #             http://github.com/gokmen
 
     # This program is free software; you can redistribute it and/or modify it
     # under the terms of the GNU General Public License as published by the Free

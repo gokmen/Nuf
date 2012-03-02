@@ -1,8 +1,8 @@
 <?php
 
-    # Copyright (C) 2012, Nuf (~Fun)
-    # 2012 - Gökmen Göksel <gokmen@goksel.me>
-    #        http://github.com/gokmen
+    # Copyright (C) 2011-2012, Nuf (~Fun)
+    # 2011,2012 - Gökmen Göksel <gokmen@goksel.me>
+    #             http://github.com/gokmen
 
     # This program is free software; you can redistribute it and/or modify it
     # under the terms of the GNU General Public License as published by the Free
@@ -10,7 +10,7 @@
     # any later version.
 
     $ar = xml2array("http://www.mgm.gov.tr/FTPDATA/analiz/sonSOA.xml");
-    
+
     function getWeather($raw_list, $city)
     {
         $min = '';
@@ -22,7 +22,7 @@
             }
         return "<!-- Hava durumu alınamıyor -->";
     }
-    
+
     foreach(array('ISTANBUL', 'ANKARA', 'IZMIR', 'BURSA', 'EDIRNE') as $city)
         $Layout->set("weather:{$city}", getWeather($ar, $city));
 
